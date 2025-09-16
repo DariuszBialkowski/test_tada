@@ -32,6 +32,8 @@ jobs:
         run: |
           newman run TADA.postman_collection.json \
           -e TADA.postman_environment.json \
+          --env-var "username=${{secrets.POSTMAN_USER}}" \
+          --env-var "password=${{secrets.POSTMAN_PASSWORD}" \
             --reporters cli,htmlextra \
             --reporter-htmlextra-export reports/results.html
 
